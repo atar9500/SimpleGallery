@@ -3,6 +3,7 @@ import {
   Linking,
   StyleSheet,
   TouchableOpacity,
+  TouchableOpacityProps,
   View,
 } from 'react-native';
 import React from 'react';
@@ -12,8 +13,9 @@ import {
   CameraPermissionStatus,
 } from 'react-native-vision-camera';
 import {useIsFocused} from '@react-navigation/native';
+import Sound from 'react-native-sound';
 
-import usePhotosStore from '~/shared/store';
+import {usePhotosStore} from '~/shared/store';
 
 import CameraPlaceholder from './CameraPlaceholder';
 
@@ -56,6 +58,17 @@ const _hints: Partial<
   },
 };
 
+const CameraButton = (props: TouchableOpacityProps) => {
+  return (
+    <TouchableOpacity style={styles.photo} {...props}>
+      <View style={styles.photoInner} />
+    </TouchableOpacity>
+  );
+};
+
+Sound.setCategory('Playback');
+const _shutterSound = new Sound('camera.mp3', Sound.MAIN_BUNDLE);
+
 const CameraScreen = () => {
   const savePhoto = usePhotosStore(state => state.savePhoto);
 
@@ -92,6 +105,8 @@ const CameraScreen = () => {
       flash: 'on',
     });
     if (photo) {
+      _shutterSound.stop();
+      _shutterSound.play();
       savePhoto(photo);
     }
   };
@@ -107,9 +122,7 @@ const CameraScreen = () => {
             photo
             style={StyleSheet.absoluteFill}
           />
-          <TouchableOpacity style={styles.photo} onPress={takePhoto}>
-            <View style={styles.photoInner} />
-          </TouchableOpacity>
+          <CameraButton onPress={takePhoto} />
         </>
       )}
       {!devices.front && <ActivityIndicator size={58} color="white" />}

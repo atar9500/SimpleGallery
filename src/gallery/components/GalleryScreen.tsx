@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
 
-import usePhotosStore from '~/shared/store';
+import {usePhotosStore} from '~/shared/store';
 import theme from '~/shared/theme';
 
 import PhotoItem from './PhotoItem';
@@ -37,7 +37,7 @@ const GalleryScreen = () => {
 
   return (
     <View style={styles.root}>
-      {/* TODO: Switch to FlatList to better rendering */}
+      {/* TODO: Switch to FlatList for better rendering */}
       {/* <FlatList
         data={photos}
         renderItem={({item: photo, index}) => {
