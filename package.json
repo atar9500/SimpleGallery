@@ -6,9 +6,10 @@
     "android": "react-native run-android --active-arch-only",
     "ios": "react-native run-ios",
     "lint": "eslint .",
-    "start": "watchman watch-del './' && watchman watch-project './' && react-native start",
+    "start": "react-native start",
     "test": "jest",
-    "pod-install": "cd ios && RCT_NEW_ARCH_ENABLED=1 bundle exec pod install && cd .."
+    "pod-install": "cd ios && RCT_NEW_ARCH_ENABLED=1 bundle exec pod install && cd ..",
+    "clear-watchman": "watchman watch-del './' && watchman watch-project './'"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.11",
