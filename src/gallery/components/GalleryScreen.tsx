@@ -68,7 +68,7 @@ const GalleryScreen = () => {
       {/* TODO: Switch to TouchableOpacity and activate onPress */}
       <View
         style={styles.camera}
-        // onPress={() => navigation.navigate('Camera')}
+        // onClick={() => navigation.navigate('Camera')}
       >
         <Icon name="camera" color="white" size={32} />
       </View>
