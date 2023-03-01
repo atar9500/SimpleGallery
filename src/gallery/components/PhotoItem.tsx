@@ -16,9 +16,11 @@ const styles = StyleSheet.create({
     height: 200,
     elevation: 8,
     backgroundColor: theme.colors.card,
+    borderRadius: 16,
   },
   image: {
     flex: 1,
+    borderRadius: 16,
   },
 });
 

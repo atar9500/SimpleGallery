@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
 
@@ -11,10 +11,10 @@ import PhotoItem from './PhotoItem';
 // TODO: Give some equal spacing between components
 const styles = StyleSheet.create({
   root: {flex: 1},
-  separator: {height: 2},
-  content: {padding: 2},
-  itemStart: {marginEnd: 1},
-  itemEnd: {marginStart: 1},
+  separator: {height: 12},
+  content: {padding: 12},
+  itemStart: {marginEnd: 6},
+  itemEnd: {marginStart: 6},
   camera: {
     backgroundColor: theme.colors.card,
     width: 60,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// const ItemSeparator = () => <View style={styles.separator} />;
+const ItemSeparator = () => <View style={styles.separator} />;
 
 const GalleryScreen = () => {
   const photos = usePhotosStore(state => state.photos);
@@ -38,7 +38,7 @@ const GalleryScreen = () => {
   return (
     <View style={styles.root}>
       {/* TODO: Switch to FlatList for better rendering */}
-      {/* <FlatList
+      <FlatList
         data={photos}
         renderItem={({item: photo, index}) => {
           const itemStyle = styles[index % 2 === 0 ? 'itemStart' : 'itemEnd'];
@@ -54,24 +54,23 @@ const GalleryScreen = () => {
         numColumns={2}
         ItemSeparatorComponent={ItemSeparator}
         contentContainerStyle={styles.content}
-      /> */}
+      />
       {/* TODO: Wrap in a ScrollView */}
-      {/* <ScrollView> */}
-      {photos.map(photo => (
-        <PhotoItem
-          key={photo.path}
-          photo={photo}
-          onPress={() => navigation.navigate('Photos', {photo})}
-        />
-      ))}
-      {/* </ScrollView> */}
+      {/* <ScrollView>
+        {photos.map(photo => (
+          <PhotoItem
+            key={photo.path}
+            photo={photo}
+            onPress={() => navigation.navigate('Photos', {photo})}
+          />
+        ))}
+      </ScrollView> */}
       {/* TODO: Switch to TouchableOpacity and activate onPress */}
-      <View
+      <TouchableOpacity
         style={styles.camera}
-        // onClick={() => navigation.navigate('Camera')}
-      >
+        onPress={() => navigation.navigate('Camera')}>
         <Icon name="camera" color="white" size={32} />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
