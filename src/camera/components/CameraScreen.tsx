@@ -113,11 +113,11 @@ const CameraScreen = () => {
 
   return (
     <View style={styles.root}>
-      {devices.front && cameraStatus === 'authorized' && (
+      {devices.back && cameraStatus === 'authorized' && (
         <>
           <Camera
             ref={camera}
-            device={devices.front}
+            device={devices.back}
             isActive={isFocused}
             photo
             style={StyleSheet.absoluteFill}

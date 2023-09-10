@@ -3,6 +3,7 @@ import {PhotoFile} from 'react-native-vision-camera';
 export type RootStackParamList = {
   Gallery: undefined;
   Camera: undefined;
+  GalleryStack: undefined;
   Photos: {photo: PhotoFile};
 };
 

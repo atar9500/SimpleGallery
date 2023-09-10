@@ -10,6 +10,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 // BUG: External imports should NOT go beyond the index file
 import CameraScreen from '~/camera/components/CameraScreen';
 import GalleryStack from '~/gallery';
+import AuthScreen from '~/auth';
 import theme from '~/shared/theme';
 
 const styles = StyleSheet.create({
@@ -26,6 +27,7 @@ const App = () => {
       <StatusBar barStyle="light-content" backgroundColor={theme.colors.card} />
       <NavigationContainer theme={theme}>
         <Stack.Navigator>
+          <Stack.Screen name="Auth" component={AuthScreen} />
           <Stack.Screen
             name="GalleryStack"
             component={GalleryStack}
