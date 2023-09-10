@@ -7,7 +7,8 @@ import {
 } from '@react-navigation/native-stack';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-import CameraScreen from '~/camera';
+// BUG: External imports should NOT go beyond the index file
+import CameraScreen from '~/camera/components/CameraScreen';
 import GalleryStack from '~/gallery';
 import theme from '~/shared/theme';
 

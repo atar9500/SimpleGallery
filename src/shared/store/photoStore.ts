@@ -4,6 +4,9 @@ import * as RNFS from 'react-native-fs';
 import {persist, createJSONStorage} from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// BUG: This import breaks the welldone file-structure, we should fix it
+import App from '~/app';
+
 type PhotosStore = {
   photos: PhotoFile[];
   savePhoto: (photo: PhotoFile) => Promise<void>;

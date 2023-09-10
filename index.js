@@ -3,8 +3,10 @@
  */
 
 import {AppRegistry} from 'react-native';
-import {name as appName} from './app.json';
 
+// eslint-disable-next-line @welldone-software/modules-engagement
 import App from '~/app';
+
+import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => App);

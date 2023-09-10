@@ -4,9 +4,10 @@ import Carousel from 'react-native-reanimated-carousel';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import {RootStackParamList} from '~/shared/types/reactNavigation';
-import {usePhotosStore} from '~/shared/store';
 
 import PhotoItem from './PhotoItem';
+// BUG: ONLY External imports (i.e; from shared) should use the alias import
+import {usePhotosStore} from '../../shared/store';
 
 type PhotosScreenProps = NativeStackScreenProps<RootStackParamList, 'Photos'>;
 
