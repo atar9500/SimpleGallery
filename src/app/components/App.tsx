@@ -8,7 +8,7 @@ import {
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 // BUG: External imports should NOT go beyond the index file
-import CameraScreen from '~/camera/components/CameraScreen';
+import CameraScreen from '~/camera';
 import GalleryStack from '~/gallery';
 import AuthScreen from '~/auth';
 import theme from '~/shared/theme';
